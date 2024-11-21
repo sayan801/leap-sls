@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}` // Load .env.development by default
+  path: `.env.${process.env.NODE_ENV || "dev"}`
 });
 
 module.exports = {
