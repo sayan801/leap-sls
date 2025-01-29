@@ -1,3 +1,21 @@
+DROP VIEW IF EXISTS public.full_codes;
+
+-- Drop foreign key constraints
+ALTER TABLE "rules" DROP CONSTRAINT IF EXISTS "rules_code_id_codes_id_fk";
+ALTER TABLE "rules" DROP CONSTRAINT IF EXISTS "rules_group_id_codes_id_fk";
+ALTER TABLE "rule_metadata" DROP CONSTRAINT IF EXISTS "rule_metadata_rule_id_rules_id_fk";
+ALTER TABLE "rule_metadata" DROP CONSTRAINT IF EXISTS "rule_metadata_metadata_id_metadata_id_fk";
+ALTER TABLE "codes" DROP CONSTRAINT IF EXISTS "codes_system_id_code_systems_id_fk";
+ALTER TABLE "code_system_aliases" DROP CONSTRAINT IF EXISTS "code_system_aliases_system_id_code_systems_id_fk";
+
+-- Drop the tables
+DROP TABLE IF EXISTS "rules";
+DROP TABLE IF EXISTS "rule_metadata";
+DROP TABLE IF EXISTS "codes";
+DROP TABLE IF EXISTS "metadata";
+DROP TABLE IF EXISTS "code_systems";
+DROP TABLE IF EXISTS "code_system_aliases";
+
 CREATE TABLE "code_system_aliases" (
 	"system_id" integer NOT NULL,
 	"alias" varchar(512) NOT NULL,

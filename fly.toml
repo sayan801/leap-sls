@@ -17,6 +17,9 @@ primary_region = 'iad'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
+  memory = '2gb'
   cpu_kind = 'shared'
-  cpus = 1
+  cpus = 2
+
+[deploy]
+  release_command = "npm run db:prod:migrate"
