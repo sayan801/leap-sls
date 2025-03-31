@@ -1,9 +1,42 @@
 {
-  "id": "97067dad-290f-407b-8d9b-bbd216f449cf",
+  "id": "2efdea61-8407-4826-a1ab-a2bc0d882832",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+    "public.code_systems": {
+      "name": "code_systems",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "code_systems_display_name_unique": {
+          "name": "code_systems_display_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "display_name"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.code_system_aliases": {
       "name": "code_system_aliases",
       "schema": "",
@@ -52,39 +85,6 @@
           "nullsNotDistinct": false,
           "columns": [
             "alias"
-          ]
-        }
-      },
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.code_systems": {
-      "name": "code_systems",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "display_name": {
-          "name": "display_name",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "code_systems_display_name_unique": {
-          "name": "code_systems_display_name_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "display_name"
           ]
         }
       },

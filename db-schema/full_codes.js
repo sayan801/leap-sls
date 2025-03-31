@@ -11,7 +11,10 @@ const full_codes = pgView("full_codes").as((qb) =>
       code: codes.code,
       system: code_system_aliases.alias,
       display: codes.display,
-      system_code: sql`CONCAT (${code_system_aliases.alias}, '#', ${codes.code})`.as('system_code')
+      system_code:
+        sql`CONCAT (${code_system_aliases.alias}, '#', ${codes.code})`.as(
+          "system_code"
+        )
     })
     .from(codes)
     .innerJoin(code_systems, eq(codes.system_id, code_systems.id))
