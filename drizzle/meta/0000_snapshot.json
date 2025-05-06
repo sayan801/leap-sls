@@ -1,5 +1,5 @@
 {
-  "id": "2efdea61-8407-4826-a1ab-a2bc0d882832",
+  "id": "3d4ba367-bf95-472d-adb5-0e12a5395346",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -28,9 +28,7 @@
         "code_systems_display_name_unique": {
           "name": "code_systems_display_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "display_name"
-          ]
+          "columns": ["display_name"]
         }
       },
       "policies": {},
@@ -41,15 +39,15 @@
       "name": "code_system_aliases",
       "schema": "",
       "columns": {
-        "system_id": {
-          "name": "system_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
         "alias": {
           "name": "alias",
           "type": "varchar(512)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "system_id": {
+          "name": "system_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         }
@@ -60,34 +58,14 @@
           "name": "code_system_aliases_system_id_code_systems_id_fk",
           "tableFrom": "code_system_aliases",
           "tableTo": "code_systems",
-          "columnsFrom": [
-            "system_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["system_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {
-        "code_system_aliases_system_id_alias_pk": {
-          "name": "code_system_aliases_system_id_alias_pk",
-          "columns": [
-            "system_id",
-            "alias"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "code_system_aliases_alias_unique": {
-          "name": "code_system_aliases_alias_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "alias"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
@@ -133,12 +111,8 @@
           "name": "codes_system_id_code_systems_id_fk",
           "tableFrom": "codes",
           "tableTo": "code_systems",
-          "columnsFrom": [
-            "system_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["system_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -178,12 +152,8 @@
           "name": "rules_code_id_codes_id_fk",
           "tableFrom": "rules",
           "tableTo": "codes",
-          "columnsFrom": [
-            "code_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["code_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -191,12 +161,8 @@
           "name": "rules_group_id_codes_id_fk",
           "tableFrom": "rules",
           "tableTo": "codes",
-          "columnsFrom": [
-            "group_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["group_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -279,12 +245,8 @@
           "name": "rule_metadata_rule_id_rules_id_fk",
           "tableFrom": "rule_metadata",
           "tableTo": "rules",
-          "columnsFrom": [
-            "rule_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["rule_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -292,12 +254,8 @@
           "name": "rule_metadata_metadata_id_metadata_id_fk",
           "tableFrom": "rule_metadata",
           "tableTo": "metadata",
-          "columnsFrom": [
-            "metadata_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["metadata_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -305,10 +263,7 @@
       "compositePrimaryKeys": {
         "rule_metadata_rule_id_metadata_id_pk": {
           "name": "rule_metadata_rule_id_metadata_id_pk",
-          "columns": [
-            "rule_id",
-            "metadata_id"
-          ]
+          "columns": ["rule_id", "metadata_id"]
         }
       },
       "uniqueConstraints": {},
@@ -340,7 +295,7 @@
         "alias": {
           "name": "alias",
           "type": "varchar(512)",
-          "primaryKey": false,
+          "primaryKey": true,
           "notNull": true
         },
         "display": {

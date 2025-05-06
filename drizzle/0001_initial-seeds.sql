@@ -13,16 +13,16 @@ VALUES
 INSERT INTO
   code_system_aliases
 VALUES
-  (2, 'http://snomed.info/sct'),
-  (2, '2.16.840.1.113883.6.96'),
-  (3, 'http://hl7.org/fhir/sid/icd-10'),
-  (3, 'urn:oid:2.16.840.1.113883.6.3'),
-  (3, 'http://id.who.int/icd/release/10/2019'),
-  (4, 'http://www.nlm.nih.gov/research/umls/rxnorm'),
-  (4, '2.16.840.1.113883.6.88'),
+  ('http://snomed.info/sct', 2),
+  ('2.16.840.1.113883.6.96', 2),
+  ('http://hl7.org/fhir/sid/icd-10', 3),
+  ('urn:oid:2.16.840.1.113883.6.3', 3),
+  ('http://id.who.int/icd/release/10/2019', 3),
+  ('http://www.nlm.nih.gov/research/umls/rxnorm', 4),
+  ('2.16.840.1.113883.6.88', 4),
   (
-    5,
-    'http://terminology.hl7.org/CodeSystem/v3-ActCode'
+    'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+    5
   ),
   (
     'http://terminology.hl7.org/CodeSystem/v3-Confidentiality',
@@ -31,7 +31,7 @@ VALUES
   ('http://loinc.org', 7),
   ('2.16.840.1.113883.6.1', 7),
   ('http://www.ama-assn.org/go/cpt', 8),
-  ('urn:oid:2.16.840.1.113883.6.12', 8) ON CONFLICT ("system_id", "alias") DO NOTHING;
+  ('urn:oid:2.16.840.1.113883.6.12', 8) ON CONFLICT ("alias") DO NOTHING;
 
 INSERT INTO
   codes

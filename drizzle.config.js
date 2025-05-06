@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   dialect: "postgresql",
-  schema: "./db-schema/index.js", // Point directly to index.js instead of a wildcard
+  schema: "./db-schema/index.js",
   out: "./drizzle",
   dbCredentials: {
     url: process.env.DATABASE_URL
