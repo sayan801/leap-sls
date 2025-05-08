@@ -34,33 +34,6 @@ VALUES
   ('urn:oid:2.16.840.1.113883.6.12', 8) ON CONFLICT ("alias") DO NOTHING;
 
 INSERT INTO
-  codes
-VALUES
-  (
-    1,
-    5,
-    'SUD',
-    'substance use disorder information sensitivity',
-    'sensitivity'
-  ),
-  (
-    2,
-    5,
-    'SEX',
-    'sexuality and reproductive health information sensitivity',
-    'sensitivity'
-  ),
-  (
-    3,
-    5,
-    'BH',
-    'behavioral health information sensitivity',
-    'sensitivity'
-  ),
-  (4, 6, 'R', 'restricted', 'confidentiality'),
-  (5, 6, 'V', 'very restricted', 'confidentiality') ON CONFLICT ("id") DO NOTHING;
-
-INSERT INTO
   metadata
 VALUES
   (
