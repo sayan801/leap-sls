@@ -1,3 +1,4 @@
+-- Custom SQL migration file, put your code below! --
 /* 
  ORGANIZATION SCHEME:
  1-9:       Confidentiality codes
@@ -394,139 +395,138 @@ INSERT INTO
   rules (id, code_id, group_id)
 VALUES
   -- Provider/role mappings
-  (1001, 11001, 1100),
   -- Addiction medicine specialist → Addiction providers
-  (1002, 12001, 1200),
+  (1001, 11001, 1100),
   -- Psychiatrist → Psychiatric providers
-  (1003, 13001, 1300),
+  (1002, 12001, 1200),
   -- Psychotherapist → BH providers
-  (1004, 13002, 1300),
+  (1003, 13001, 1300),
   -- Mental health counselor → BH providers
-  (1005, 14001, 1400),
+  (1004, 13002, 1300),
   -- Interdisciplinary team → Team providers
-  (1006, 14002, 1400),
+  (1005, 14001, 1400),
   -- Multidisciplinary care → Team providers
+  (1006, 14002, 1400),
   -- Condition/diagnosis mappings
-  (2001, 21001, 2100),
   -- Opioid abuse, in remission → Opioid conditions
-  (2002, 21002, 2100),
+  (2001, 21001, 2100),
   -- Opioid abuse → Opioid conditions
-  (2003, 21003, 2100),
+  (2002, 21002, 2100),
   -- IV opioid abuse → Opioid conditions
-  (2004, 21004, 2100),
+  (2003, 21003, 2100),
   -- Opioid abuse (ICD) → Opioid conditions
-  (2005, 22001, 2200),
+  (2004, 21004, 2100),
   -- Ketamine use → Hallucinogen conditions
-  (2006, 22002, 2200),
+  (2005, 22001, 2200),
   -- Hallucinogen dependence → Hallucinogen conditions
-  (2007, 23001, 2300),
+  (2006, 22002, 2200),
   -- Major depression (ICD) → Depressive conditions
-  (2008, 23002, 2300),
+  (2007, 23001, 2300),
   -- Major depression (SNOMED) → Depressive conditions
-  (2009, 24001, 2400),
+  (2008, 23002, 2300),
   -- OCD (ICD) → Anxiety conditions
-  (2010, 24002, 2400),
+  (2009, 24001, 2400),
   -- OCD (SNOMED) → Anxiety conditions
+  (2010, 24002, 2400),
   -- Medication mappings
-  (3001, 31001, 3100),
   -- Buprenorphine/naloxone → Opioid medications
-  (3002, 31002, 3100),
+  (3001, 31001, 3100),
   -- Buprenorphine/Naloxone Tablet → Opioid medications
-  (3003, 31003, 3100),
+  (3002, 31002, 3100),
   -- Buprenorphine substance → Opioid medications
-  (3004, 32001, 3200),
+  (3003, 31003, 3100),
   -- Fluoxetine → BH medications
-  (3005, 32002, 3200),
+  (3004, 32001, 3200),
   -- Fluoxetine substance → BH medications
+  (3005, 32002, 3200),
   -- Assessment/instrument mappings
-  (4001, 41001, 4100),
   -- CBT record → BH assessments
-  (4002, 41002, 4100),
+  (4001, 41001, 4100),
   -- Brief assessment → BH assessments
-  (4003, 42001, 4200),
+  (4002, 41002, 4100),
   -- PHQ-9 instrument → Depression assessments
-  (4004, 42002, 4200),
+  (4003, 42001, 4200),
   -- PHQ-9 panel → Depression assessments
+  (4004, 42002, 4200),
+  -- PHQ-9 questionnaire → Depression assessments
   (4005, 42003, 4200);
 
--- PHQ-9 questionnaire → Depression assessments
 -- 2. MAP GROUPS TO HL7 SENSITIVITY CATEGORIES
 INSERT INTO
   rules (id, code_id, group_id)
 VALUES
   -- SUD sensitivity (ID=10) mappings 
-  (5001, 1100, 10),
   -- Addiction providers → SUD sensitivity
-  (5002, 2100, 10),
+  (5001, 1100, 10),
   -- Opioid conditions → SUD sensitivity  
-  (5003, 2200, 10),
+  (5002, 2100, 10),
   -- Hallucinogen conditions → SUD sensitivity
-  (5004, 3100, 10),
+  (5003, 2200, 10),
   -- Opioid medications → SUD sensitivity
+  (5004, 3100, 10),
   -- OPIOIDUD specific mappings
-  (5101, 2100, 20),
   -- Opioid conditions → OPIOIDUD sensitivity
-  (5102, 3100, 20),
+  (5101, 2100, 20),
   -- Opioid medications → OPIOIDUD sensitivity
+  (5102, 3100, 20),
   -- ETH (substance abuse treatment) mappings
-  (5201, 1100, 21),
   -- Addiction providers → ETH sensitivity
+  (5201, 1100, 21),
   -- BH sensitivity (ID=12) mappings
-  (5301, 1200, 12),
   -- Psychiatric providers → BH sensitivity
-  (5302, 1300, 12),
+  (5301, 1200, 12),
   -- BH providers → BH sensitivity
-  (5303, 1400, 12),
+  (5302, 1300, 12),
   -- Team providers → BH sensitivity
-  (5304, 2300, 12),
+  (5303, 1400, 12),
   -- Depressive conditions → BH sensitivity
-  (5305, 2400, 12),
+  (5304, 2300, 12),
   -- Anxiety conditions → BH sensitivity  
-  (5306, 3200, 12),
+  (5305, 2400, 12),
   -- BH medications → BH sensitivity
-  (5307, 4100, 12),
+  (5306, 3200, 12),
   -- BH assessments → BH sensitivity
-  (5308, 4200, 12),
+  (5307, 4100, 12),
   -- Depression assessments → BH sensitivity
+  (5308, 4200, 12),
   -- PSY (psychiatry) specific mappings
-  (5401, 1200, 30),
   -- Psychiatric providers → PSY sensitivity
-  (5402, 1300, 30),
+  (5401, 1200, 30),
   -- BH providers → PSY sensitivity
-  (5403, 2300, 30),
+  (5402, 1300, 30),
   -- Depressive conditions → PSY sensitivity
-  (5404, 2400, 30),
+  (5403, 2300, 30),
   -- Anxiety conditions → PSY sensitivity
+  (5404, 2400, 30),
   -- PSYTHPN (psychotherapy notes) mappings
+  -- CBT record → PSYTHPN sensitivity
   (5501, 41001, 31);
 
--- CBT record → PSYTHPN sensitivity
 -- 3. MAP SENSITIVITY TO CONFIDENTIALITY LEVEL
 INSERT INTO
   rules (id, code_id, group_id)
 VALUES
-  -- Core sensitivities to Restricted
-  (6001, 10, 1),
   -- SUD → Restricted
-  (6002, 11, 1),
+  (6001, 10, 1),
   -- SEX → Restricted  
-  (6003, 12, 1),
+  (6002, 11, 1),
   -- BH → Restricted
-  (6004, 13, 1),
+  (6003, 12, 1),
   -- HIV → Restricted
-  (6005, 14, 1),
+  (6004, 13, 1),
   -- SDV → Restricted
-  (6006, 20, 1),
+  (6005, 14, 1),
   -- OPIOIDUD → Restricted
-  (6007, 21, 1),
+  (6006, 20, 1),
   -- ETH → Restricted
-  (6008, 30, 1),
+  (6007, 21, 1),
   -- PSY → Restricted
-  (6009, 31, 2),
+  (6008, 30, 1),
   -- PSYTHPN → Very restricted (psychotherapy notes need higher protection)
+  (6009, 31, 2),
+  -- BHDS → Restricted
   (6010, 32, 1);
 
--- BHDS → Restricted
 -- Add empty system alias for LOCAL
 INSERT INTO
   code_system_aliases (system_id, alias)
@@ -537,26 +537,29 @@ VALUES
 INSERT INTO
   rule_metadata (rule_id, metadata_id)
 VALUES
-  -- Core sensitivities metadata
-  (6001, 1),
   -- SUD → 42CFRPart2
-  (6001, 2),
-  -- SUD → service attribution
-  (6002, 2),
-  -- SEX → service attribution 
-  (6003, 2),
-  -- BH → service attribution
-  (6006, 1),
+  (6001, 1),
   -- OPIOIDUD → 42CFRPart2
-  (6007, 1),
+  (6006, 1),
   -- ETH → 42CFRPart2
-  -- Specific group metadata
-  (5001, 1),
-  -- Addiction providers → 42CFRPart2
-  (5002, 1),
-  -- Opioid conditions → 42CFRPart2 
-  (5003, 1),
-  -- Hallucinogen conditions → 42CFRPart2
-  (5004, 1);
-
--- Opioid medications → 42CFRPart2
+  (6007, 1),
+  -- SUD → LEAP+ Security Labeling Service
+  (6001, 2),
+  -- SEX → LEAP+ Security Labeling Service
+  (6002, 2),
+  -- BH → LEAP+ Security Labeling Service
+  (6003, 2),
+  -- HIV → LEAP+ Security Labeling Service
+  (6004, 2),
+  -- SDV → LEAP+ Security Labeling Service
+  (6005, 2),
+  -- OPIOIDUD → LEAP+ Security Labeling Service
+  (6006, 2),
+  -- ETH → LEAP+ Security Labeling Service
+  (6007, 2),
+  -- PSY → LEAP+ Security Labeling Service
+  (6008, 2),
+  -- BHDS → LEAP+ Security Labeling Service
+  (6009, 2),
+  -- PSYTHPN → LEAP+ Security Labeling Service
+  (6010, 2);
