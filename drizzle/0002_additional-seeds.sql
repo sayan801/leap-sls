@@ -531,7 +531,7 @@ VALUES
 INSERT INTO
   code_system_aliases (system_id, alias)
 VALUES
-  (1, '') ON CONFLICT DO NOTHING;
+  (1, 'local_code_group') ON CONFLICT DO NOTHING;
 
 -- RULE METADATA
 INSERT INTO

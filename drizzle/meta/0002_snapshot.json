@@ -1,6 +1,6 @@
 {
-  "id": "bc487bd0-2b2a-4630-bdc5-9330fb72a9bf",
-  "prevId": "7447cf65-ef5b-4db5-b9a7-06e222d9717b",
+  "id": "837efbab-4dd3-452b-8b13-b2a7b5bfea08",
+  "prevId": "002e478c-d1ad-47f7-9767-59c26eb3f422",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -27,9 +27,7 @@
       "uniqueConstraints": {
         "code_systems_display_name_unique": {
           "name": "code_systems_display_name_unique",
-          "columns": [
-            "display_name"
-          ],
+          "columns": ["display_name"],
           "nullsNotDistinct": false
         }
       },
@@ -59,13 +57,9 @@
         "code_system_aliases_system_id_code_systems_id_fk": {
           "name": "code_system_aliases_system_id_code_systems_id_fk",
           "tableFrom": "code_system_aliases",
-          "columnsFrom": [
-            "system_id"
-          ],
+          "columnsFrom": ["system_id"],
           "tableTo": "code_systems",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -116,13 +110,9 @@
         "codes_system_id_code_systems_id_fk": {
           "name": "codes_system_id_code_systems_id_fk",
           "tableFrom": "codes",
-          "columnsFrom": [
-            "system_id"
-          ],
+          "columnsFrom": ["system_id"],
           "tableTo": "code_systems",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -161,26 +151,18 @@
         "rules_code_id_codes_id_fk": {
           "name": "rules_code_id_codes_id_fk",
           "tableFrom": "rules",
-          "columnsFrom": [
-            "code_id"
-          ],
+          "columnsFrom": ["code_id"],
           "tableTo": "codes",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         },
         "rules_group_id_codes_id_fk": {
           "name": "rules_group_id_codes_id_fk",
           "tableFrom": "rules",
-          "columnsFrom": [
-            "group_id"
-          ],
+          "columnsFrom": ["group_id"],
           "tableTo": "codes",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -262,26 +244,18 @@
         "rule_metadata_rule_id_rules_id_fk": {
           "name": "rule_metadata_rule_id_rules_id_fk",
           "tableFrom": "rule_metadata",
-          "columnsFrom": [
-            "rule_id"
-          ],
+          "columnsFrom": ["rule_id"],
           "tableTo": "rules",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         },
         "rule_metadata_metadata_id_metadata_id_fk": {
           "name": "rule_metadata_metadata_id_metadata_id_fk",
           "tableFrom": "rule_metadata",
-          "columnsFrom": [
-            "metadata_id"
-          ],
+          "columnsFrom": ["metadata_id"],
           "tableTo": "metadata",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -289,10 +263,7 @@
       "compositePrimaryKeys": {
         "rule_metadata_rule_id_metadata_id_pk": {
           "name": "rule_metadata_rule_id_metadata_id_pk",
-          "columns": [
-            "rule_id",
-            "metadata_id"
-          ]
+          "columns": ["rule_id", "metadata_id"]
         }
       },
       "uniqueConstraints": {},
