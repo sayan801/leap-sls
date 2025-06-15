@@ -522,8 +522,8 @@ VALUES
   (6007, 21, 1),
   -- PSY → Restricted
   (6008, 30, 1),
-  -- PSYTHPN → Very restricted (psychotherapy notes need higher protection)
-  (6009, 31, 2),
+  -- PSYTHPN → restricted
+  (6009, 31, 1),
   -- BHDS → Restricted
   (6010, 32, 1);
 
