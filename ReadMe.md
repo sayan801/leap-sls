@@ -1,4 +1,4 @@
-# which tech stac is used in this code base
+# which tech stack is used in this code base
 
 GitHub Copilot: Based on the codebase analysis, here's the key technology stack used:
 
